@@ -1,7 +1,8 @@
 #include<iostream>
 #include<stdio.h>
 #include<string.h>
-
+#include<fstream>
+#include"../helpers/utils/random-uuid.h"
 using namespace std;
 
 char name[100], address[100], type[100];
@@ -14,6 +15,9 @@ class bank{
      void deposit_money();
      void withdraw_money();
      void display_account();
+     void save_account(string name, int age, string address, string type, float balance);
+     void get_account(string account_number);
+     void get_accounts();
 };
 
 void bank::open_account(){
@@ -36,6 +40,8 @@ void bank::open_account(){
     cout<<"\n Enter your first deposit amount: ";
     cin.ignore();
     cin>>balance;
+
+    save_account(name, age, address, type, balance);
 
     cout<<"\n Account opened successfully";
 }
@@ -61,9 +67,28 @@ void bank::withdraw_money(){
 }
 
 void bank::display_account(){
-    cout<<"\n Name: "<<name;
-    cout<<"\n Age: "<<age;
-    cout<<"\n Address: "<<address;
-    cout<<"\n Type of Account: "<<type;
-    cout<<"\n Balance: "<<balance;
+    string account_number;
+    cout<<"\n Enter your account number: ";
+    cin>>account_number;
+    get_account(account_number);
+}
+
+void bank::save_account(string name, int age, string address, string type, float balance){
+    string id = generate_uuid();
+    ofstream accounts;
+    accounts.open("src/domains/accounts.txt",ios::app);
+    accounts<<"\n"<<id<<" "<<name<<" "<<age<<" "<<address<<" "<<type<<" "<<balance<<endl;
+    accounts.close();
+}
+
+void bank::get_account(string account_number){
+    ifstream accounts;
+    accounts.open("src/domains/accounts.txt");
+    string line;
+    while(getline(accounts,line)){
+        if(line.find(account_number)!=string::npos){
+            cout<<"\n"<<line;
+        }
+    }
+    accounts.close();
 }

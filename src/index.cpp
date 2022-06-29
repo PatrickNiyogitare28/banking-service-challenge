@@ -21,6 +21,7 @@ int main(){
     cout<<"\n 3. Withdraw Money"<<endl;
     cout<<"\n 4. Display Account"<<endl;
     cout<<"\n 5. Exit"<<endl;
+    cout<<"\n 6. File testing"<<endl;
     cout<<"\n\n ";
 
     cin>>ch;
@@ -50,6 +51,11 @@ int main(){
     case 5:
         cout<<"\n Exiting..."<<endl;
         exit(0);
+        break;
+    case 6:
+        cout<<"\n Testing file..."<<endl;
+        // obj.test_file();
+        break;
     default:
         cout<<"\n Invalid Choice, Try again"<<endl;
         break;
