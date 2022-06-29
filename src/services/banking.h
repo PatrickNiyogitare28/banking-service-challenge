@@ -92,3 +92,13 @@ void bank::get_account(string account_number){
     }
     accounts.close();
 }
+
+void bank::get_accounts(){
+    ifstream accounts;
+    accounts.open("src/domains/accounts.txt");
+    string line;
+    while(getline(accounts,line)){
+        cout<<"\n"<<line;
+    }
+    accounts.close();
+}
