@@ -20,8 +20,8 @@ int main(){
     cout<<"\n 2. Deposit Money"<<endl;
     cout<<"\n 3. Withdraw Money"<<endl;
     cout<<"\n 4. Display Account"<<endl;
-    cout<<"\n 5. Exit"<<endl;
-    cout<<"\n 6. File testing"<<endl;
+    cout<<"\n 5. Display Accounts"<<endl;
+    cout<<"\n 6. Exit"<<endl;
     cout<<"\n\n ";
 
     cin>>ch;
@@ -49,12 +49,12 @@ int main(){
         obj.display_account();
         break;
     case 5:
-        cout<<"\n Exiting..."<<endl;
-        exit(0);
+        cout<<"\n Display Accounts..."<<endl;
+        obj.get_accounts();
         break;
     case 6:
-        cout<<"\n Testing file..."<<endl;
-        // obj.test_file();
+        cout<<"\n Exiting..."<<endl;
+        exit(0);
         break;
     default:
         cout<<"\n Invalid Choice, Try again"<<endl;

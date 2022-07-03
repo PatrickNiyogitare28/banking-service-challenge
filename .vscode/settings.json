@@ -3,7 +3,10 @@
         "*.json": "cpp",
         "iosfwd": "cpp",
         "ostream": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "string": "cpp",
+        "fstream": "cpp",
+        "ios": "cpp"
     },
     "C_Cpp.errorSquiggles": "Enabled"
 }
